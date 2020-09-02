@@ -76,8 +76,21 @@ footer {
 
 .issue {
   padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 
 .issue:hover {
   background-color: #cccfff;
+}
+
+.issue div {
+  margin: 0 1rem;
+}
+
+.issue-label {
+  margin: 0 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
 }
