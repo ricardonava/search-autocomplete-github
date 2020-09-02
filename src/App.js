@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Issues from "./components/Issues";
+import Searchbar from "./components/Searchbar";
+import fetchData from "./utils/fetchData";
 
 function App() {
+  const [issues, setIssues] = useState(null);
+
+  useEffect(() => {
+    fetchData(setIssues);
+  }, []);
+
+  console.log(issues);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="grid-container">
+      <header>
+        <Searchbar />
+        <button>Search</button>
       </header>
+      <main>
+        <div className="content">
+          <div className="main">
+            {!issues ? <h1>LOADING...</h1> : <Issues issues={issues} />}
+          </div>
+        </div>
+      </main>
+      <footer>React's got issues.</footer>
     </div>
   );
 }
