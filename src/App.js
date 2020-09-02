@@ -5,22 +5,24 @@ import fetchData from "./utils/fetchData";
 
 function App() {
   const [issues, setIssues] = useState(null);
+  const [query, setQuery] = useState("");
+  const [isSearching, setisSearching] = useState(false);
 
-  useEffect(() => {
-    fetchData(setIssues);
-  }, []);
+  // useEffect(() => {
+  //   fetchData(setIssues, query);
+  // }, [query]);
 
   console.log(issues);
   return (
     <div className="grid-container">
       <header>
-        <Searchbar />
-        <button>Search</button>
+        <Searchbar query={query} setQuery={setQuery} />
+        <button onClick={() => fetchData(setIssues, query)}>Search</button>
       </header>
       <main>
         <div className="content">
           <div className="main">
-            {!issues ? <h1>LOADING...</h1> : <Issues issues={issues} />}
+            {!issues ? <h1>Search issues...</h1> : <Issues issues={issues} />}
           </div>
         </div>
       </main>

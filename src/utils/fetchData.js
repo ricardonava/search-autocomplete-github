@@ -1,6 +1,6 @@
-const fetchData = async (setIssues) => {
+const fetchData = async (setIssues, query) => {
   const response = await fetch(
-    "https://api.github.com/search/issues?q=Refactor+in:title+repo:facebook/react+state:open"
+    `https://api.github.com/search/issues?q=${query}+in:title+repo:facebook/react+state:open`
   );
   const data = await response.json();
   console.log(data);
