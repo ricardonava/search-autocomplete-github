@@ -1,10 +1,10 @@
 const fetchData = async (setIssues) => {
   const response = await fetch(
-    "https://api.github.com/repos/facebook/react/issues"
+    "https://api.github.com/search/issues?q=Refactor+in:title+repo:facebook/react+state:open"
   );
   const data = await response.json();
   console.log(data);
-  const fetchedIssues = data.map((issue) => {
+  const fetchedIssues = data.items.map((issue) => {
     const created = new Date(issue.created_at).toString();
     return {
       _id: issue.node_id,
