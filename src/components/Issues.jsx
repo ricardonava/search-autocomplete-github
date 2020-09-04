@@ -4,7 +4,6 @@ import contrastText from './../utils/contrastText'
 export default function Searchbar({ issues }) {
   return (
     <div>
-      <h1>Latest open issues...</h1>
       <ul className="issues">
         {issues.map((issue) => (
           <li key={issue._id}>
