@@ -33,7 +33,7 @@ function App() {
         <div className="content">
           <div className="main">
             {typeof issues === 'undefined' || issues.length < 1 ? (
-              <h1>Search issues...</h1>
+              <div class="loader">Loading...</div>
             ) : (
               <Issues issues={issues} />
             )}
