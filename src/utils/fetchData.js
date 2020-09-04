@@ -1,8 +1,8 @@
-const fetchData = async (query, setIssues) => {
+const fetchData = async (query, setIssues, setIsLoading) => {
+  setIsLoading(true)
   const url = `https://api.github.com/search/issues?q=${query}+in:title+repo:facebook/react+state:open`
   const response = await fetch(url)
   const data = await response.json()
-  console.log(data)
 
   const fetchedIssues = data.items.map((issue) => {
     const created = new Date(issue.created_at).toString()
@@ -18,7 +18,9 @@ const fetchData = async (query, setIssues) => {
       },
     }
   })
+  console.log(fetchedIssues)
   setIssues(fetchedIssues)
+  setIsLoading(false)
 }
 
 export default fetchData

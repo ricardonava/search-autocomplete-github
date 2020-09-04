@@ -3,8 +3,8 @@ import contrastText from './../utils/contrastText'
 
 export default function Searchbar({ issues }) {
   return (
-    <div>
-      <ul className="issues">
+    <div className="issues">
+      <ul className="issues-list">
         {issues.map((issue) => (
           <li key={issue._id}>
             <a className="title" href={issue.url}>
