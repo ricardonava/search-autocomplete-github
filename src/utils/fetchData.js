@@ -1,11 +1,11 @@
-const fetchData = async (setIssues, query) => {
-  const response = await fetch(
-    `https://api.github.com/search/issues?q=${query}+in:title+repo:facebook/react+state:open`
-  );
-  const data = await response.json();
-  console.log(data);
+const fetchData = async (query, setIssues) => {
+  const url = `https://api.github.com/search/issues?q=${query}+in:title+repo:facebook/react+state:open`
+  const response = await fetch(url)
+  const data = await response.json()
+  console.log(data)
+
   const fetchedIssues = data.items.map((issue) => {
-    const created = new Date(issue.created_at).toString();
+    const created = new Date(issue.created_at).toString()
     return {
       _id: issue.node_id,
       url: issue.html_url,
@@ -16,9 +16,9 @@ const fetchData = async (setIssues, query) => {
       user: {
         login: issue.user.login,
       },
-    };
-  });
-  setIssues(fetchedIssues);
-};
+    }
+  })
+  setIssues(fetchedIssues)
+}
 
-export default fetchData;
+export default fetchData

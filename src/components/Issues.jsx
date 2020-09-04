@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react'
+import contrastText from './../utils/contrastText'
 
 export default function Searchbar({ issues }) {
   return (
@@ -15,7 +16,10 @@ export default function Searchbar({ issues }) {
                     <span
                       className="issue-label"
                       key={label.id}
-                      style={{ backgroundColor: `#${label.color}` }}
+                      style={{
+                        backgroundColor: `#${label.color}`,
+                        color: `${contrastText(label.color)}`,
+                      }}
                     >
                       {label.name}
                     </span>
@@ -27,5 +31,5 @@ export default function Searchbar({ issues }) {
         ))}
       </ul>
     </div>
-  );
+  )
 }
