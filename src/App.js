@@ -3,9 +3,18 @@ import Issues from './components/Issues'
 import Loading from './components/Loading'
 import Searchbar from './components/Searchbar'
 import Welcome from './components/Welcome'
+import fetchData from './utils/fetchData'
 import normalizeData from './utils/normalizeData'
 
-function App() {
+async function searchIssues(query, setIssues, setIsLoading) {
+  setIsLoading(true)
+  const data = await fetchData(query)
+  const fetchedIssues = normalizeData(data)
+  setIsLoading(false)
+  setIssues(fetchedIssues)
+}
+
+const App = () => {
   const [issues, setIssues] = useState(undefined)
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -15,9 +24,9 @@ function App() {
       setIssues([])
       return
     }
+
     const delayDebounceFn = setTimeout(() => {
-      console.log(query)
-      normalizeData(query, setIssues, setIsLoading)
+      searchIssues(query, setIssues, setIsLoading)
     }, 1000)
 
     return () => clearTimeout(delayDebounceFn)
@@ -34,7 +43,7 @@ function App() {
   return (
     <div className="grid-container">
       <header>
-        <Searchbar query={query} setQuery={setQuery} setIssues={setIssues} />
+        <Searchbar query={query} setQuery={setQuery} />
       </header>
       <main>
         <div className="content">
