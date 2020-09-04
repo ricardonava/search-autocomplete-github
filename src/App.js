@@ -8,6 +8,9 @@ function App() {
   const [query, setQuery] = useState('')
 
   useEffect(() => {
+    if (!query) {
+      return
+    }
     const delayDebounceFn = setTimeout(() => {
       console.log(query)
       fetchData(query, setIssues)
