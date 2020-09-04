@@ -1,5 +1,6 @@
 import React from 'react'
-import contrastText from './../utils/contrastText'
+import contrastText from '../../utils/contrastText'
+import './issues.css'
 
 const Searchbar = ({ issues }) => (
   <div className="issues">

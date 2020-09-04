@@ -1,0 +1,27 @@
+/* SEARCHBAR */
+.search {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.searchTerm {
+  padding: 1rem 2rem;
+  width: 100%;
+  border: none;
+  border-bottom: 0.5rem solid var(--primary-color-dark);
+  outline: none;
+  color: var(--primary-color-lighter);
+  font-weight: bold;
+  font-size: 2rem;
+  height: 4rem;
+}
+.searchTerm::placeholder {
+  color: var(--primary-color);
+}
+
+.searchTerm:focus {
+  color: var(--primary-color-dark);
+}

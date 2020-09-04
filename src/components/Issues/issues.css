@@ -1,0 +1,65 @@
+/* ISSUES LIST */
+.issues {
+  height: 100%;
+  width: 100%;
+}
+
+.issues-list {
+  width: 100%;
+  padding: 0;
+  margin: 1.5rem 0;
+  list-style-type: none;
+}
+
+.issues li {
+  border-bottom: 0.1rem solid var(--primary-color-lightest);
+}
+
+.issues li a {
+  text-decoration: none;
+  color: #203040;
+  font-weight: bold;
+}
+
+.issue {
+  padding: 2rem;
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  height: 100%;
+}
+
+.issue div {
+  margin-right: 2rem;
+}
+
+.issue:hover {
+  background-color: var(--hover-color);
+}
+
+.issue-status {
+  display: flex;
+  align-items: flex-start;
+  color: var(--success-color);
+}
+
+.issue-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.issue-labels {
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.issue-label {
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  margin: 0.2rem 0;
+}

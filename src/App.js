@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import Issues from './components/Issues'
-import Loading from './components/Loading'
-import Searchbar from './components/Searchbar'
-import Welcome from './components/Welcome'
+import Issues from './components/Issues/Issues'
+import Loading from './components/Loading/Loading'
+import Searchbar from './components/Searchbar/Searchbar'
+import Welcome from './components/Welcome/Welcome'
 import fetchData from './utils/fetchData'
 import normalizeData from './utils/normalizeData'
 
