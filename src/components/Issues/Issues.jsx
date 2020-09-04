@@ -4,6 +4,9 @@ import './issues.css'
 
 const Searchbar = ({ issues }) => (
   <div className="issues">
+    <div className="issues-title">
+      <h1>React open issues.</h1>
+    </div>
     <ul className="issues-list">
       {issues.map((issue) => (
         <li key={issue._id}>

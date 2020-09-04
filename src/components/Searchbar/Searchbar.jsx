@@ -10,7 +10,7 @@ const Searchbar = ({ query, setQuery }) => {
       <input
         type="text"
         className="searchTerm"
-        placeholder="Search React issues..."
+        placeholder="Search OPEN React issues..."
         value={query}
         onChange={handleChange}
       />
