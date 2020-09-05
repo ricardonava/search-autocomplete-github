@@ -6,9 +6,16 @@ import Welcome from './components/Welcome/Welcome'
 import fetchData from './utils/fetchData'
 import normalizeData from './utils/normalizeData'
 
-async function searchIssues(query, setIssues, setIsLoading) {
+async function searchIssues(query, setIssues, setIsLoading, setError) {
   setIsLoading(true)
   const data = await fetchData(query)
+
+  if (data === 'rate limit exceeded') {
+    setIssues(undefined)
+    setError(data)
+    setIsLoading(false)
+    return
+  }
   const fetchedIssues = normalizeData(data)
   setIsLoading(false)
   setIssues(fetchedIssues)
@@ -18,6 +25,7 @@ const App = () => {
   const [issues, setIssues] = useState(undefined)
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(undefined)
 
   useEffect(() => {
     if (!query) {
@@ -27,7 +35,7 @@ const App = () => {
 
     // Only fetch when user stops typing
     const delayDebounceFn = setTimeout(() => {
-      searchIssues(query, setIssues, setIsLoading)
+      searchIssues(query, setIssues, setIsLoading, setError)
     }, 700)
 
     return () => clearTimeout(delayDebounceFn)
@@ -39,6 +47,10 @@ const App = () => {
     screen = <Welcome />
   } else {
     screen = <Issues issues={issues} query={query} />
+  }
+
+  if (error) {
+    screen = <h1>Hey speedy HOLD ON search rate exceeded!!</h1>
   }
 
   return (
