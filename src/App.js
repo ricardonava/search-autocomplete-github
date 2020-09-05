@@ -25,9 +25,10 @@ const App = () => {
       return
     }
 
+    // Only fetch when user stops typing
     const delayDebounceFn = setTimeout(() => {
       searchIssues(query, setIssues, setIsLoading)
-    }, 1000)
+    }, 700)
 
     return () => clearTimeout(delayDebounceFn)
   }, [query])
@@ -37,7 +38,7 @@ const App = () => {
   if (typeof issues === 'undefined' || issues.length < 1) {
     screen = <Welcome />
   } else {
-    screen = <Issues issues={issues} />
+    screen = <Issues issues={issues} query={query} />
   }
 
   return (
