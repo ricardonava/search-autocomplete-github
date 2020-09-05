@@ -4,7 +4,7 @@
  * @returns {string}
  */
 
-function contrastText(hexcolor) {
+export default function contrastText(hexcolor) {
   /*!
    * Get the contrasting color for any hex color
    * (c) 2019 Chris Ferdinandi, MIT License, https://gomakethings.com
@@ -39,5 +39,3 @@ function contrastText(hexcolor) {
   // Check contrast
   return yiq >= 128 ? 'black' : 'white'
 }
-
-export default contrastText
