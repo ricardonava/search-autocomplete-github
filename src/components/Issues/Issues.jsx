@@ -5,11 +5,12 @@ import './issues.css'
 
 const Issues = ({ debouncedQuery }) => {
   const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open`
-  const data = useFetchSuspense(url)
+  const { items: issues } = useFetchSuspense(url)
+  console.log(issues)
   return (
     <div className="issues">
       <ul className="issues-list">
-        {data.items.map((issue) => (
+        {issues.map((issue) => (
           <li key={issue.id}>
             <a className="title" href={issue.html_url}>
               <div className="issue">
