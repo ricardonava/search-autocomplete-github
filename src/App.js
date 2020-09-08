@@ -1,22 +1,23 @@
-import React, { Suspense, useState } from 'react'
-import Issues from './components/Issues/Issues'
+import React, { lazy, Suspense, useState } from 'react'
 import Loading from './components/Loading/Loading'
 import Searchbar from './components/Searchbar/Searchbar'
 import Welcome from './components/Welcome/Welcome'
 import useDebounce from './hooks/useDebounce'
 
+const Issues = lazy(() => import('./components/Issues/Issues'))
+
 const App = () => {
   const [query, setQuery] = useState('')
   const debouncedQuery = useDebounce(query, 700)
 
-  let screen
+  let main
 
   if (!debouncedQuery) {
-    screen = <Welcome />
+    main = <Welcome />
   }
 
   if (debouncedQuery) {
-    screen = (
+    main = (
       <Suspense fallback={<Loading />}>
         <Issues debouncedQuery={debouncedQuery} />
       </Suspense>
@@ -30,7 +31,7 @@ const App = () => {
       </header>
       <main>
         <div className="content">
-          <div className="main">{screen}</div>
+          <div className="main">{main}</div>
         </div>
       </main>
       <footer>React's got issues.</footer>
