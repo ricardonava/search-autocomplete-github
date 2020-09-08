@@ -4,15 +4,41 @@ import contrastText from '../../utils/contrastText'
 import './issues.css'
 
 const Issues = ({ debouncedQuery }) => {
-  const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open`
-  const { items: issues } = useFetchSuspense(url)
-  console.log(issues)
+  const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open&per_page=100`
+  const data = useFetchSuspense(url)
+  const { items: issues } = data
+
+  if (data.message) {
+    const message = data.message.replace(/ .*/, '')
+    if (message === 'API') {
+      return <h1>Hey speedy hold on, your searching to fast!!</h1>
+    }
+    return <h1>Unknown error please try again.</h1>
+  }
+
+  if (issues.length === 0) {
+    return <h1>No issues found that match "{debouncedQuery}"</h1>
+  }
+
   return (
     <div className="issues">
+      <div className="issues-title">
+        <h1>
+          Last {issues.length !== 1 && issues.length} <span>OPEN</span>{' '}
+          {issues.length > 1 ? 'issues' : 'issue'} that{' '}
+          {issues.length > 1 ? 'match' : 'matches'} "{issues && debouncedQuery}
+          ".
+        </h1>
+      </div>
       <ul className="issues-list">
         {issues.map((issue) => (
           <li key={issue.id}>
-            <a className="title" href={issue.html_url}>
+            <a
+              className="title"
+              href={issue.html_url}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               <div className="issue">
                 <div className="issue-status">{issue.state}</div>
                 <div className="issue-title">{issue.title}</div>
