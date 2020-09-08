@@ -18,7 +18,15 @@ const App = () => {
 
   if (debouncedQuery) {
     main = (
-      <Suspense fallback={<Loading />}>
+      <Suspense
+        fallback={
+          <>
+            <Loading query={query}>
+              <h1>Searching issues that match "{query}"...</h1>
+            </Loading>
+          </>
+        }
+      >
         <Issues debouncedQuery={debouncedQuery} />
       </Suspense>
     )
