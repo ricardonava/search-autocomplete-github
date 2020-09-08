@@ -4,9 +4,10 @@ import contrastText from '../../utils/contrastText'
 import './issues.css'
 
 const Issues = ({ debouncedQuery }) => {
-  const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open`
-  const { items: issues } = useFetchSuspense(url)
-  console.log(issues)
+  const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open&per_page=100`
+  const data = useFetchSuspense(url)
+  const { items: issues } = data
+  console.log(data)
   if (issues.length === 0) {
     return <h1>No issues found that match "{debouncedQuery}"</h1>
   }
