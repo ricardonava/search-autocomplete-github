@@ -1,6 +1,6 @@
+import produce from 'immer'
 import LRU from 'lru-cache'
 import md5 from 'md5'
-import produce from 'immer'
 
 const cache = new LRU(50)
 
