@@ -6,11 +6,20 @@ import './issues.css'
 const Issues = ({ debouncedQuery }) => {
   const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open&per_page=100`
   const data = useFetchSuspense(url)
-  const { items: issues } = data
-  console.log(data)
-  if (issues.length === 0) {
+  const { items: issues, total_count: count, message: errorMessage } = data
+
+  if (errorMessage) {
+    const message = errorMessage.replace(/ .*/, '')
+    if (message === 'API') {
+      return <h1>Hey speedy hold on, your searching to fast!!</h1>
+    }
+    return <h1>Unknown error please try again.</h1>
+  }
+
+  if (count === 0) {
     return <h1>No issues found that match "{debouncedQuery}"</h1>
   }
+
   return (
     <div className="issues">
       <div className="issues-title">
