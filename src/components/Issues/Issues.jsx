@@ -1,25 +1,17 @@
-import React, { memo } from 'react'
+import React from 'react'
+import useFetchSuspense from '../../hooks/useFetchSuspense'
 import contrastText from '../../utils/contrastText'
 import './issues.css'
 
-// Only rerender when both props change
-const areEqual = (prevProps, nextProps) => true
-
-const Searchbar = memo((props) => {
-  const { issues, query } = props
+const Issues = ({ debouncedQuery }) => {
+  const url = `https://api.github.com/search/issues?q=${debouncedQuery}+in:title+repo:facebook/react+state:open`
+  const data = useFetchSuspense(url)
   return (
     <div className="issues">
-      <div className="issues-title">
-        <h1>
-          Last {issues.length !== 1 && issues.length} <span>OPEN</span>{' '}
-          {issues.length > 1 ? 'issues' : 'issue'} that{' '}
-          {issues.length > 1 ? 'match' : 'matches'} "{issues && query}".
-        </h1>
-      </div>
       <ul className="issues-list">
-        {issues.map((issue) => (
-          <li key={issue._id}>
-            <a className="title" href={issue.url}>
+        {data.items.map((issue) => (
+          <li key={issue.id}>
+            <a className="title" href={issue.html_url}>
               <div className="issue">
                 <div className="issue-status">{issue.state}</div>
                 <div className="issue-title">{issue.title}</div>
@@ -44,6 +36,6 @@ const Searchbar = memo((props) => {
       </ul>
     </div>
   )
-}, areEqual)
+}
 
-export default Searchbar
+export default Issues

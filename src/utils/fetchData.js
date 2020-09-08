@@ -5,5 +5,6 @@ export default async function fetchData(query) {
   if (!response.ok) {
     return response.statusText
   }
+  console.log(data)
   return data
 }
