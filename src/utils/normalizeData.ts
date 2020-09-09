@@ -1,5 +1,5 @@
-export default function normalizeData(data) {
-  return data.items.map((issue) => {
+export default function normalizeData(data: any) {
+  return data.items.map((issue: any) => {
     const created = new Date(issue.created_at).toString()
     console.log(data)
     return {
@@ -13,5 +13,5 @@ export default function normalizeData(data) {
         login: issue.user.login,
       },
     }
-  })
+  });
 }

@@ -1,8 +1,11 @@
 import React from 'react'
 import './searchbar.css'
 
-const Searchbar = ({ query, setQuery }) => {
-  const handleChange = (event) => {
+const Searchbar = ({
+  query,
+  setQuery
+}: any) => {
+  const handleChange = (event: any) => {
     setQuery(event.target.value)
   }
   return (

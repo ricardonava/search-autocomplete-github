@@ -13,35 +13,48 @@ const App = () => {
   let main
 
   if (!debouncedQuery) {
+
     main = <Welcome />
   }
 
   if (debouncedQuery) {
     main = (
+
       <Suspense
         fallback={
+
           <>
+
             <Loading query={query}>
+
               <h1>Searching issues that match "{query}"...</h1>
             </Loading>
           </>
         }
       >
+
         <Issues debouncedQuery={debouncedQuery} />
       </Suspense>
     )
   }
 
   return (
+
     <div className="grid-container">
+
       <header>
+
         <Searchbar query={query} setQuery={setQuery} />
       </header>
+
       <main>
+
         <div className="content">
+
           <div className="main">{main}</div>
         </div>
       </main>
+
       <footer>React's got issues.</footer>
     </div>
   )
