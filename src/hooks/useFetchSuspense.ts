@@ -9,7 +9,6 @@ const cache = new LRU(50)
 const useFetchSuspense = (url: any, fetchOptions = {}) => {
   const key = `${url}.${md5(JSON.stringify(fetchOptions))}`
   const value = cache.get(key) || { status: 'new', data: null }
-  console.log(value)
   if (value.status === 'resolved') {
     return value.data
   }
@@ -25,7 +24,6 @@ const useFetchSuspense = (url: any, fetchOptions = {}) => {
       })
     )
   })
-  console.log(value)
 
   throw promise
 }
