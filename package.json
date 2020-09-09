@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jest": "^26.0.13"
+    "@types/jest": "^26.0.13",
+    "ts-migrate": "^0.1.2"
   }
 }
