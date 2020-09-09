@@ -4,7 +4,7 @@
  * @returns {string}
  */
 
-export default function contrastText(hexcolor) {
+export default function contrastText(hexcolor: any) {
   /*!
    * Get the contrasting color for any hex color
    * (c) 2019 Chris Ferdinandi, MIT License, https://gomakethings.com
@@ -22,7 +22,7 @@ export default function contrastText(hexcolor) {
   if (hexcolor.length === 3) {
     hexcolor = hexcolor
       .split('')
-      .map(function (hex) {
+      .map(function (hex: any) {
         return hex + hex
       })
       .join('')
