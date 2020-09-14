@@ -1,3 +1,7 @@
+# Hosted on Github Pages
+
+[https://ricardonava.github.io/search-autocomplete-github/]
+
 ## Available Scripts
 
 In the project directory, you can run:
