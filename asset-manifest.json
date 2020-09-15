@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/search-autocomplete-github/static/css/main.8cbd35cc.chunk.css",
-    "main.js": "/search-autocomplete-github/static/js/main.90a9eea3.chunk.js",
-    "main.js.map": "/search-autocomplete-github/static/js/main.90a9eea3.chunk.js.map",
+    "main.js": "/search-autocomplete-github/static/js/main.394c4060.chunk.js",
+    "main.js.map": "/search-autocomplete-github/static/js/main.394c4060.chunk.js.map",
     "runtime-main.js": "/search-autocomplete-github/static/js/runtime-main.41d919f7.js",
     "runtime-main.js.map": "/search-autocomplete-github/static/js/runtime-main.41d919f7.js.map",
-    "static/js/2.17f483d3.chunk.js": "/search-autocomplete-github/static/js/2.17f483d3.chunk.js",
-    "static/js/2.17f483d3.chunk.js.map": "/search-autocomplete-github/static/js/2.17f483d3.chunk.js.map",
+    "static/js/2.ec88eb2f.chunk.js": "/search-autocomplete-github/static/js/2.ec88eb2f.chunk.js",
+    "static/js/2.ec88eb2f.chunk.js.map": "/search-autocomplete-github/static/js/2.ec88eb2f.chunk.js.map",
     "index.html": "/search-autocomplete-github/index.html",
-    "precache-manifest.099158a1ecb3c39b51f903b9e50a00ea.js": "/search-autocomplete-github/precache-manifest.099158a1ecb3c39b51f903b9e50a00ea.js",
+    "precache-manifest.56efbf3c6d567a61c7e3ff646b8a8e64.js": "/search-autocomplete-github/precache-manifest.56efbf3c6d567a61c7e3ff646b8a8e64.js",
     "service-worker.js": "/search-autocomplete-github/service-worker.js",
     "static/css/main.8cbd35cc.chunk.css.map": "/search-autocomplete-github/static/css/main.8cbd35cc.chunk.css.map",
-    "static/js/2.17f483d3.chunk.js.LICENSE.txt": "/search-autocomplete-github/static/js/2.17f483d3.chunk.js.LICENSE.txt",
-    "static/js/main.90a9eea3.chunk.js.LICENSE.txt": "/search-autocomplete-github/static/js/main.90a9eea3.chunk.js.LICENSE.txt"
+    "static/js/2.ec88eb2f.chunk.js.LICENSE.txt": "/search-autocomplete-github/static/js/2.ec88eb2f.chunk.js.LICENSE.txt",
+    "static/js/main.394c4060.chunk.js.LICENSE.txt": "/search-autocomplete-github/static/js/main.394c4060.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.41d919f7.js",
-    "static/js/2.17f483d3.chunk.js",
+    "static/js/2.ec88eb2f.chunk.js",
     "static/css/main.8cbd35cc.chunk.css",
-    "static/js/main.90a9eea3.chunk.js"
+    "static/js/main.394c4060.chunk.js"
   ]
 }
