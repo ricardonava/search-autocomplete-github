@@ -1,6 +1,6 @@
 # Hosted on Github Pages
 
-[https://ricardonava.github.io/search-autocomplete-github/]
+https://ricardonava.github.io/search-autocomplete-github/
 
 ## Available Scripts
 
